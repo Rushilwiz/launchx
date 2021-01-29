@@ -1,2 +1,0 @@
-# launchx
-LaunchX TJHSST Website
