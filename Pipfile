@@ -11,6 +11,7 @@ django-crispy-forms = "*"
 requests = "*"
 django-secrets = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
