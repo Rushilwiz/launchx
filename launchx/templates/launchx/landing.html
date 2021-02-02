@@ -1,0 +1,18 @@
+{% extends "launchx/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'launchx/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="hero">
+        <div class="img">
+            <div class="bulb">
+                <img src="{% static 'launchx/img/lightbulb.png' %}" class="on"></img>
+                <img src="{% static 'launchx/img/lightbulb-bw.png' %}" class="off"></img>
+            </div>
+            <div class="text"></div>
+        </div>
+    </main>
+{% endblock %}

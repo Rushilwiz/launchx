@@ -1,2 +1,2 @@
 # launchx
-LaunchX TJHSST Website
+Source repo for LaunchX @ TJHSST
