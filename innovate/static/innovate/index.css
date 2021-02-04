@@ -1,0 +1,42 @@
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 5em;
+  line-height: 0.8em;
+}
+
+.header h1 small {
+  font-size: 0.6em;
+}
+
+.header h3 {
+  font-size: 1.6em;
+  color: #ececec;
+  text-decoration: underline;
+}
+
+.basic-info ul {
+  list-style: none;
+  font-size: 2em;
+}
+
+li {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+li:before {
+  content: '- ';
+}
+
+.list-text {
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+.sign-up {
+  margin: auto auto;
+  text-align: center;
+}

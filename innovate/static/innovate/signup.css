@@ -1,0 +1,56 @@
+.row1 .header:after {
+  content: '1';
+}
+
+.row2 .header:after {
+  content: '2';
+} 
+
+.row3 .header:after {
+  content: '3';
+} 
+
+.row4 .header:after {
+  content: '4';
+}
+
+fieldset {
+  border-width: 15px;
+  padding: 20px;
+}
+
+legend {
+  padding-left: 20px;
+}
+
+.form-floating {
+  color: black;
+}
+
+.form-floating label {
+  margin-left: 20px;
+}
+
+.add-row {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+.reciept .form-floating input {
+  color: white;
+}
+
+#payment-instructions {
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+#payment-instructions:hover {
+  text-decoration: underline;
+}

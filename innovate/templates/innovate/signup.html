@@ -1,0 +1,70 @@
+{% extends 'launchx/base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'innovate/signup.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{% static 'innovate/formsets.js' %}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('form .competitor-container').formset({
+                extraClasses: ['row1', 'row2', 'row3', 'row4']
+            })
+        })
+    </script>
+{% endblock %}
+
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <form class="form col-sm-6 offset-sm-3" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ formset.management_form|crispy }}
+        {% for form in formset %}
+        {{ form.non_field_errors }}
+        {{ form.errors }}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        <fieldset class="competitor-container container col">
+            <legend class="header row">
+                Competitor&nbsp;
+            </legend>
+            <div class="row">
+                <div class="form-floating col-5">
+                    {{ form.name }}
+                    {{ form.name.label_tag }}
+                </div>
+                <div class="form-floating col-5">
+                    {{ form.email }}
+                    {{ form.email.label_tag }}
+                </div>
+            </div>
+        </fieldset>
+        {% endfor %}
+        {% for hidden in team_form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {{ team_form.non_field_errors }}
+        {{ team_form.errors }}
+        <fieldset class="container col">
+            <legend class="team-header row">
+                Team Info
+            </legend>
+            <div class="form-floating row">
+                {{ team_form.name }}
+                {{ team_form.name.label_tag }}
+            </div>
+        </fieldset>
+        <fieldset class="container col reciept">
+            <legend class="team-header row">
+                Team Payment (Optional)
+                <a id="payment-instructions" href="#">How do I pay?</a>
+            </legend>
+            <div class="form-floating row">
+                {{ team_form.reciept }}
+            </div>
+        </fieldset>
+        <button class="mt-3 btn btn-light" type="submit">Sign Up!</button>
+{% endblock %}

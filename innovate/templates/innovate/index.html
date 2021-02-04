@@ -1,4 +1,28 @@
 {% extends "launchx/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'innovate/index.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h1 style='color: white;'>InnovateTJ!</h1>
+    <header class="header">
+        <h1><small>It's time to</small><br>InnovateTJ!</h1>
+        <h3>TJ's very own entrpreneurial pitch and workshop event!</h3>
+    </header>
+    <section class="basic-info row mt-sm-5">
+        <div class="col-sm-8">
+            <ul>
+                <li>Who: <span class="list-text">Teams of 2-4 high school students</span></li>
+                <li>What: <span class="list-text">A collaborative event where you and other innovators will develop a business pitch for real entrepreneurs with the chance of winning real money and other prizes!</span></li>
+                <li>When: <span class="list-text">Feb 20th, 2021 @ 9AM - 5PM</span></li>
+                <li>Where: <span class="list-text">Online</span></li>
+                <li>How: <span class="list-text">$20 per team </span></li>
+            </ul>
+        </div>
+        <div class="col-sm-4 sign-up">
+            <h1>Sign up </h>
+            <a href="{% url 'competitor-signup' %}" class="btn btn-light signup">Here</a> 
+        </div>
+    </section>
 {% endblock %}
