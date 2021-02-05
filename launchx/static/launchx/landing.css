@@ -5,6 +5,10 @@
   transform: translate(-50%, -50%);
 }
 
+body {
+  overflow: hidden;
+}
+
 .bulb {
   margin-left: 25%;
   margin-bottom: 5vh;
@@ -39,6 +43,7 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -48,7 +53,7 @@
   from {
     opacity: 0;
   }
-  
+
   to {
     opacity: 1;
   }
