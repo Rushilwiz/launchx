@@ -15,4 +15,14 @@ admin_site.register(User)
 admin_site.register(Group)
 
 admin_site.register(Competitor)
-admin_site.register(Team)
+
+class CompetitorInline(admin.TabularInline):
+    model = Competitor
+
+class TeamAdmin(admin.ModelAdmin):
+    inlines = [
+        CompetitorInline,
+    ]
+    
+
+admin_site.register(Team, TeamAdmin)

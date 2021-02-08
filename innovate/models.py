@@ -25,7 +25,7 @@ class Competitor(models.Model):
     email = models.EmailField(max_length = 254)
     is_leader = models.BooleanField(default=False)
     
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, related_name="competitors", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Competitor"
