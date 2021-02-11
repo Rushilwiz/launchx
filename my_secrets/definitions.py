@@ -8,5 +8,7 @@
 SECRET_KEYS = [
     # start with your Django secret key like this:
     "SECRET_KEY",
-    "DEBUG"
+    "DEBUG",
+    "EMAIL_USER",
+    "EMAIL_PASSWORD"
 ]

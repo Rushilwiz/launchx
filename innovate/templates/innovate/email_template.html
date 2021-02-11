@@ -1,0 +1,18 @@
+<h1>Hey team, {{ team.name }}!</h1>
+
+<p>Thanks for registering for <strong>InnovateTJ</strong>! This is a confirmation email for your registration. Your team is number {{ team.number }}. This number will be used for pitching and grading purposes. If you have any questions prior to the event, please email us <a href="mailto:tjhsstlaunchx@gmail.com">here</a>.</p>
+<br>
+Your team includes:
+<br>
+{% for member in members %}
+<p>Team Member {{ forloop.counter }}: {{ member.name }}</p>
+<p><i>From {{ member.school }} @ {{ member.school }}</i></p>
+<br>
+{% endfor %}
+<p>We'll be seeing you on February 20th, 2021 from 9AM to 5AM, and more information will be sent out as the event nears! But until then, keep innovating.</p>
+<br>
+<p>
+    Best,<br>
+    InnovateTJ Team<br>
+    tjhsstlaunchx@gmail.com
+</p>

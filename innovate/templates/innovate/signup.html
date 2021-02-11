@@ -41,6 +41,16 @@
                     {{ form.email.label_tag }}
                 </div>
             </div>
+            <div class="row mt-2">
+                <div class="form-floating col-5">
+                    {{ form.school }}
+                    {{ form.school.label_tag }}
+                </div>
+                <div class="form-floating col-5">
+                    {{ form.county }}
+                    {{ form.county.label_tag }}
+                </div>
+            </div>
         </fieldset>
         {% endfor %}
         {% for hidden in team_form.hidden_fields %}

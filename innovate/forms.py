@@ -6,10 +6,12 @@ from .models import Competitor, Team
 class CompetitorForm(forms.ModelForm):
     name = forms.CharField(label='Full Name', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'John Doe'}))
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example@email.com'}))
-
+    school = forms.CharField(label='School', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'TJHSST'}))
+    county = forms.CharField(label='County', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fairfax'}))
+    
     class Meta:
         model = Competitor
-        fields = ['name', 'email']
+        fields = ['name', 'email', 'school', 'county']
 
     def __init__(self, *args, **kwargs):
         super(CompetitorForm, self).__init__(*args, **kwargs)

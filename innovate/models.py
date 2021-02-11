@@ -22,7 +22,9 @@ class Team(models.Model):
 
 class Competitor(models.Model):
     name = models.CharField(max_length=20, blank=True, default='')
-    email = models.EmailField(max_length = 254)
+    email = models.EmailField(max_length=254)
+    school = models.CharField(max_length=20, blank=True, default='')
+    county = models.CharField(max_length=20, blank=True, default='')
     is_leader = models.BooleanField(default=False)
     
     team = models.ForeignKey(Team, related_name="competitors", on_delete=models.CASCADE)
