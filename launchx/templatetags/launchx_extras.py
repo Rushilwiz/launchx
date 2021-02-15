@@ -9,4 +9,7 @@ def static(file_location):
 
 @register.simple_tag
 def url(url):
-    return settings.URL_PREFIX + url
+    if url[-1] == '/':
+        return settings.URL_PREFIX + url
+    else:
+        return settings.URL_PREFIX + url + '/'
