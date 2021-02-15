@@ -146,10 +146,12 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATIC_URL = '/static/'
+
 if DEBUG:
-    STATIC_URL = '/static/'
+    STATIC_PREFIX = STATIC_URL
 else:
-    STATIC_URL = '/launchx/static/'
+    STATIC_PREFIX = '/launchx' + STATIC_URL
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

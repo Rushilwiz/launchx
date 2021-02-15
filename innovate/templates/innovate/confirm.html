@@ -1,5 +1,5 @@
 {% extends 'launchx/base.html' %}
-{% load static %}
+{% load launchx_extras %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'innovate/confirm.css' %}">
@@ -8,6 +8,7 @@
 {% block content %}
     <main class="signup">
         <h1>Congrats!</h1>
-        <h3>You've successfully signed up for InnovateTJ, please check your email for a confirmation. We'll see you </h3>
+        <h4>You've successfully signed up for InnovateTJ, please check your email for a confirmation. We'll see you there!</h4>
+        <a href="{% url 'landing' %}"><button class="btn btn-light">Back</button></a>
     </main>
 {% endblock %}
