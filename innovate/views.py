@@ -40,12 +40,10 @@ def signup(request):
 
 
 def send_confirmation(request, team, members):
-    #subject = "🥳 InnovateTJ Signup Confirmation 🥳"
-    subject = "OK NO THIS ONE IS THE LAST EMAIL"
-    #recepients = []
-    #for member in members:
-    #    recepients.append(member.email)
-    recepients = ['rushilwiz@gmail.com', 'ssuganuma04@gmail.com']
+    subject = "🥳 InnovateTJ Signup Confirmation"
+    recepients = []
+    for member in members:
+        recepients.append(member.email)
 
     context = {
         'team': team,
@@ -62,10 +60,7 @@ def send_confirmation(request, team, members):
         recepients,
         reply_to=sender
     )
-    print(request.POST.getlist('rep'))
     email.attach_alternative(html_message, "text/html")
-    print("### EMAIL SENT ###")
-    print (recepients)
     email.send(fail_silently=False)
 
 def confirm(request):
