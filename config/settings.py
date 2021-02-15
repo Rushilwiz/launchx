@@ -98,7 +98,7 @@ if DEBUG:
 else:
     DATABASES = {
         'default': {
-            "ENGINE": "django_prometheus.db.backends.postgresql",
+            "ENGINE": "django.db.backends.postgresql",
             "NAME": os.environ["DIRECTOR_DATABASE_NAME"],
             "USER": os.environ["DIRECTOR_DATABASE_USERNAME"],
             "PASSWORD": os.environ["DIRECTOR_DATABASE_PASSWORD"],
@@ -159,7 +159,6 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 
-
 # Email
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -170,3 +169,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = secrets.EMAIL_USER 
 EMAIL_HOST_PASSWORD = secrets.EMAIL_PASSWORD
 
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
