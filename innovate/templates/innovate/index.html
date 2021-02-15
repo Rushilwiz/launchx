@@ -5,44 +5,91 @@
 <link rel="stylesheet" href="{% static 'innovate/index.css' %}">
 {% endblock %}
 
-{% block content %}
-<div class="star"></div>
-<div class="meteor-1"></div>
-<div class="meteor-2"></div>
-<div class="meteor-3"></div>
-<div class="meteor-4"></div>
-<div class="meteor-5"></div>
-<div class="meteor-6"></div>
-<div class="meteor-7"></div>
-<div class="meteor-8"></div>
-<div class="meteor-9"></div>
-<div class="meteor-10"></div>
-<div class="meteor-11"></div>
-<div class="meteor-12"></div>
-<div class="meteor-13"></div>
-<div class="meteor-14"></div>
-<div class="meteor-15"></div>
-<div class="container">
-    <header class="header">
-        <h1><small>It's time to</small><br>InnovateTJ!</h1>
-        <h3>TJ's very own entrpreneurial pitch and workshop event!</h3>
-    </header>
-</div>
-<section class="basic-info row mt-sm-5">
-    <div class="col-sm-8">
-        <ul>
-            <li>Who: <span class="list-text">Teams 2-4 high school students</span></li>
-            <li>What: <span class="list-text">A collaborative event where you and other innovators will develop a
-                    business pitch for real entrepreneurs with the chance of winning real money and other prizes!</span>
-            </li>
-            <li>When: <span class="list-text">Feb 20th, 2021 @ 9AM - 5PM</span></li>
-            <li>Where: <span class="list-text">Online</span></li>
-            <li>How: <span class="list-text">$20 per team </span></li>
-        </ul>
+{% block content_no_container %}
+<div class="container-fluid"> 
+  <div class = "page-header row">
+    <div class="col-lg-12">
+    <!-- <div class="header" style="margin-bottom:0"> -->
+      <h1>InnovateTJ</h1>
+      <h2>FEBRUARY 20TH, 2021</h2>
+      <h3>LaunchX's Annual Entrepreneurship and Pitching Event</h3>
     </div>
+
     <div class="col-sm-4 sign-up">
-        <h1>Sign up </h>
-            <a href="{% url '/innovate/signup' %}" class="btn btn-light signup">Here</a>
+      <!-- <h1>Sign up </h> -->
+      <a href="{% url '/innovate/signup' %}" class="btn btn-light signup">Sign Up!</a> 
     </div>
-</section>
+  </div>
+</div>
+<!-- </section> -->
+
+<!-- </header> -->
+<div class = "container-fluid">
+  <!-- style="overflow-x: hidden" -->
+  <div class="basic-info row">
+      <div class="col-sm-4 who-what-where">
+        <h1>Who</h1>
+      </div>
+
+      <div class="col-sm-8 list-text">
+          <h1>Teams of 2-4 high school students</h1>
+      </div>
+  </div>
+
+  <div class="basic-info row">
+    <div class="col-sm-4 who-what-where">
+      <h1>What</h1>
+    </div>
+
+    <div class="col-sm-8 list-text">
+      <h1>A collaborative event where you and other innovators will develop a business pitch for real entrepreneurs with the chance of winning real money and other prizes!</h1>
+    </div>
+  </div>
+
+  <div class="basic-info row"">
+    <div class="col-sm-4 who-what-where">
+      <h1>When</h1>
+    </div>
+
+    <div class="col-sm-8 list-text">
+        <h1> Saturday, February 20th, 2021 from 9 am to 5 pm!</h1>
+    </div>
+  </div>
+
+  <div class="basic-info row">
+    <div class="col-sm-4 who-what-where">
+      <h1>Where</h1>
+    </div>
+
+    <div class="col-sm-8 list-text">
+      <h1>Virtual! Everything is virtual due to COVID-19</h1>
+    </div>
+  </div>
+
+
+  <div class="basic-info row">
+    <div class="col-sm-4 who-what-where">
+      <h1>How</h1>
+    </div>
+
+    <div class="col-sm-8 list-text">
+      <h1>Signup by clicking the button above. For more information, scroll down!</h1>
+    </div>
+  </div>
+</div>
+
+<div class = "container-fluid">
+  <div class="information row" >
+    <div class = "col-md-6 judge-competitior-information">
+      <h1>Information</h1>
+      <p>Click on the links for more information regarding the event.</p>
+      <a href="https://docs.google.com/document/d/1ioBqhbIuDEtCDYSFt3ldcNgJfxQpXhWmmUzrEqkVEas/edit?usp=sharing" class="btn btn-light competitor-information" target="_blank">Competition Information</a> 
+      <p>Questions? Email us at <a href="mailto:tjhsstlaunchx@gmail.com" class="email-link">tjhsstlaunchx@gmail.com</a> or refer to the above document</p>
+    </div>
+    <div class = "col-md-6 innovate-image">
+      <img src="https://images.unsplash.com/photo-1529704193007-e8c78f0f46f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80" alt="Innovation Lightbulb">
+      <small><span>Photo by <a href="https://unsplash.com/@cdubo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christian Dubovan</a> on <a href="https://unsplash.com/s/photos/light-bulb?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></small>
+    </div>
+  </div>
+</div>
 {% endblock %}
