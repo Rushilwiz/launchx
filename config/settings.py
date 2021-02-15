@@ -150,8 +150,10 @@ STATIC_URL = '/static/'
 
 if DEBUG:
     STATIC_PREFIX = STATIC_URL
+    URL_PREFIX = ''
 else:
     STATIC_PREFIX = '/launchx' + STATIC_URL
+    URL_PREFIX = '/launchx'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
