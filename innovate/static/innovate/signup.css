@@ -55,7 +55,7 @@ button {
   text-decoration: underline;
 }
 
-.modal {
+.custom-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -68,7 +68,7 @@ button {
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.custom-modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
