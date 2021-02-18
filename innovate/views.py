@@ -13,7 +13,7 @@ def home(request):
     return render(request, 'innovate/index.html')
 
 def signup(request):
-    formset = CompetitorFormset()
+    formset = CompetitorFormset(queryset=Competitor.objects.none())
     team_form = TeamForm()
     
     if request.method == 'POST':
@@ -30,10 +30,11 @@ def signup(request):
                 county = form.cleaned_data.get('school')
                 if name and email and school and county:
                     m = Competitor(name=name, email=email, school=school, county=county, is_leader=is_leader, team=team)
-                    m.save()
                     is_leader = False
                     members.append(m)
-            send_confirmation(request, team,members)
+            send_confirmation(request, team, members)
+            for m in members:
+                m.save()
             return redirect('landing')
 
     return render(request, 'innovate/signup.html', {'formset': formset, 'team_form': team_form})

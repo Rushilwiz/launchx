@@ -21,10 +21,10 @@ class CompetitorForm(forms.ModelForm):
 CompetitorFormset = modelformset_factory(
     Competitor,
     form=CompetitorForm,
-    min_num=2, max_num=4, extra=0)
+    min_num=2, max_num=4)
 
 class TeamForm(forms.ModelForm):
-    name = forms.CharField(required=False, label="Team Name (Optional)",  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'BusinessX'}))
+    name = forms.CharField(required=False, label="Team Name",  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'BusinessX'}))
     reciept = forms.FileField(required=False)
 
     class Meta:
