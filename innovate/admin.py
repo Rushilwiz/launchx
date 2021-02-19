@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Team, Competitor
+from .models import Team, Competitor, Judge, Score
 from django.contrib.auth.models import User, Group
 
 # Register your models here.
@@ -13,6 +13,9 @@ admin_site = LaunchXAdminSite(name='launchx-admin')
 
 admin_site.register(User)
 admin_site.register(Group)
+
+admin_site.register(Judge)
+admin_site.register(Score)
 
 admin_site.register(Competitor)
 

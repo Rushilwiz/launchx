@@ -1,0 +1,31 @@
+{% extends 'launchx/base.html' %}
+{% load launchx_extras %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'innovate/portal.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-md-3 w-75">
+        <h1>Welcome Judge {{ request.user.last_name }},</h1>
+        <h5>Thanks for judging at InnovateTJ, now time to score!</h5>
+        <hr>
+    </div>
+    <div class="containter text-center">
+        <h4>{{ completed_teams_count }} out of {{ teams_count }} teams scored</h4>
+    </div>
+    <div class="container w-50">
+        {% for team in teams %}
+            <div class="border border-2 border-secondary rounded-3 mt-md-4 p-md-4">
+                <h3>Team {{ team.number }}: {{ team.name }} <small class="text-secondary">Unscored</small></h3>
+                <a href="{% url '/innovate/judges/feedback' %}?team={{ team.number | urlencode }}"><button class="btn btn-light w-100">Score Team {{ team.number }}</button></a>
+            </div>
+        {% endfor %}
+
+        {% for team, score in completed_teams %}
+            <div class="border border-2 border-secondary rounded-3 mt-md-4 p-md-2">
+                <h3>Team {{ team.number }}: {{ team.name }} <small><span class="text-success">Scored</span> {{ score.get_total_score }}/150</small></h3>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

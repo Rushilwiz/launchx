@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import modelformset_factory
 
-from .models import Competitor, Team
+from .models import Competitor, Team, Score
 
 class CompetitorForm(forms.ModelForm):
     name = forms.CharField(label='Full Name', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'John Doe'}))
@@ -24,7 +24,7 @@ CompetitorFormset = modelformset_factory(
     min_num=2, max_num=4)
 
 class TeamForm(forms.ModelForm):
-    name = forms.CharField(required=False, label="Team Name",  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'BusinessX'}))
+    name = forms.CharField(required=True, label="Team Name",  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'BusinessX'}))
     reciept = forms.FileField(required=False)
 
     class Meta:
@@ -41,3 +41,20 @@ class TeamForm(forms.ModelForm):
         if commit:
             m.save()
         return m
+
+class ScoreForm(forms.ModelForm):
+    innovation = forms.IntegerField(min_value=0, max_value=30, widget=forms.NumberInput(attrs={'placeholder': '30'}))
+    need = forms.IntegerField(min_value=0, max_value=35, widget=forms.NumberInput(attrs={'placeholder': '35'}))
+    finances = forms.IntegerField(min_value=0, max_value=25, widget=forms.NumberInput(attrs={'placeholder': '25'}))
+    creativity = forms.IntegerField(min_value=0, max_value=10, widget=forms.NumberInput(attrs={'placeholder': '10'}))
+
+    qna = forms.IntegerField(min_value=0, max_value=25, widget=forms.NumberInput(attrs={'placeholder': '25'}))
+    speaking = forms.IntegerField(min_value=0, max_value=10, widget=forms.NumberInput(attrs={'placeholder': '10'}))
+    persuasiveness = forms.IntegerField(min_value=0, max_value=10, widget=forms.NumberInput(attrs={'placeholder': '10'}))
+    professionalism = forms.IntegerField(min_value=0, max_value=5, widget=forms.NumberInput(attrs={'placeholder': '5'}))
+
+    feedback = forms.CharField(required=False, widget=forms.Textarea(attrs={'placeholder': 'Enter feedback here (optional)', 'class': 'form-control'}))
+
+    class Meta:
+        model = Score
+        fields = ['innovation', 'need', 'finances', 'creativity', 'qna', 'speaking', 'persuasiveness', 'professionalism']

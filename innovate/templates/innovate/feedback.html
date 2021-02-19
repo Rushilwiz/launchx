@@ -1,0 +1,121 @@
+{% extends 'launchx/base.html' %}
+{% load launchx_extras %}
+{% block content %}
+    <h1>Feedback for Team {{ team.number }}: {{ team.name }}</h1>
+    <div class="d-flex">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.errors }}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            <input type="hidden" id="team_number" name="team_number" value="{{ team.number }}">
+            <div class="container">
+                <h2><span class="border-bottom border-3">Product</span></h2>
+                <div class="col">
+                    <div class="row">
+                        <h3>Innovation</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Does the product have a unique value proposition (15 pts) ? i.e. does it use novel, innovative technologies, or combine existing technologies in a unique way  (10 pts) ?  How does their solution fit under the theme of innovation  (5 pts) ? </p>
+                        </div>
+                        <div class="col-6">
+                            {{ form.innovation }}/30
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h3>Marketability / Need</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Is there a need for this product (10 pts) ? Does the team know the intended market  (5 pts) ? Do they complete a market analysis or examine their servicable avaible market  (15 pts) ? Is the innovation practical  (5 pts) ?</p>
+                        </div>
+                        <div class="col-6">
+                            {{ form.need }}/35
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h3>Finances</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Does the team have a business model (10 pts) ? Do they know who their intended customer is  (5 pts) ? Does the team perform a competitive analysis of their market (explain the differentiators between their innovation and current products/services in the market)  (10 pts)?</p>
+                        </div>
+                        <div class="col-6">
+                            {{ form.finances }}/25
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                        <div class="row">
+                            <h3>Creativity / Professionalism </h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Is their presentation creative AND professional  (5 pts each) ?</p>
+                            </div>
+                            <div class="col-6">
+                                {{ form.creativity }}/10
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-md-3">
+                <h2><span class="border-bottom border-3">Delivery</span></h2>
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Q&A Session</h3>
+                    </div>
+                    <div class="col-6">
+                        {{ form.qna }}/25
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Speaking Quality </h3>
+                    </div>
+                    <div class="col-6">
+                        {{ form.speaking }}/10
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Persuasiveness</h3>
+                    </div>
+                    <div class="col-6">
+                        {{ form.persuasiveness }}/10
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Professionalism</h3>
+                    </div>
+                    <div class="col-6">
+                        {{ form.professionalism }}/5
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-md-3">
+                <div class="col">
+                    <div class="row">
+                        <h2>Feedback</h2>
+                    </div>
+                    <div class="row">
+                        {{ form.feedback }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-md-3">
+                <button class="btn btn-light btn-block" type="submit">Submit Score</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
