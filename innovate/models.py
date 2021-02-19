@@ -15,10 +15,10 @@ class Team(models.Model):
     def __str__(self):
         return self.name
     
-    def clean(self):
-        # Don't allow teams to have the same name.
-        if Team.objects.filter(name=self.name).count() > 0:
-            raise ValidationError({'name': 'That name is already taken! Sorry.'})
+    # def clean(self):
+    #     # Don't allow teams to have the same name.
+    #     if Team.objects.filter(name=self.name).count() > 0:
+    #         raise ValidationError({'name': 'That name is already taken! Sorry.'})
 
 class Competitor(models.Model):
     name = models.CharField(max_length=20, blank=True, default='')
@@ -36,10 +36,10 @@ class Competitor(models.Model):
     def __str__(self):
         return self.name
 
-    def clean(self):
-        # Don't allow teams to have the same name.
-        if Competitor.objects.filter(name=self.name).count() > 0:
-            raise ValidationError({'name': 'Somebody with that name is already registered!'})
+    # def clean(self):
+    #         # Don't allow teams to have the same name.
+    #         if Competitor.objects.filter(name=self.name).count() > 0:
+    #             raise ValidationError({'name': 'Somebody with that name is already registered!'})
 
-        if Competitor.objects.filter(email=self.email).count() > 0:
-            raise ValidationError({'email': 'Somebody with that email is already registered!'})
+    #         if Competitor.objects.filter(email=self.email).count() > 0:
+    #             raise ValidationError({'email': 'Somebody with that email is already registered!'})
