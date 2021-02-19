@@ -23,6 +23,20 @@ class Team(models.Model):
     def __str__(self):
         return f'Team {self.number}: {self.name}'
     
+    @property
+    def feedback_recieved(self):
+        return Score.objects.filter(team=self).count()
+
+    @property
+    def score_average(self):
+        scores = Score.objects.filter(team=self)
+        if scores.count() == 0:
+            return 0
+        average = 0
+        for score in scores:
+            average += score.get_total_score
+        return round(average / scores.count(), 2)
+
     # def clean(self):
     #     # Don't allow teams to have the same name.
     #     if Team.objects.filter(name=self.name).count() > 0:
@@ -62,6 +76,20 @@ class Judge(models.Model):
 
     def __str__(self):
         return f'Judge {self.user.last_name}'
+    
+    @property
+    def name(self):
+        return self.user.get_full_name()
+
+    @property
+    def scores_left(self):
+        all_teams = len([team.number for team in Team.objects.all() if ((team.number % 2 == 0 and self.isEven) or (team.number % 2 != 0 and not self.isEven))])
+        completed_teams = Score.objects.filter(judge=self).count()
+        return f'{completed_teams}/{all_teams}'
+    
+    @property
+    def color(self):
+        return 'Blue' if self.isEven else 'Red'
 
 class Score(models.Model):
     judge = models.ForeignKey(Judge, on_delete=models.CASCADE)
@@ -89,6 +117,7 @@ class Score(models.Model):
     def __str__(self):
         return f'Team {self.team.number}\'s Feedback from {self.judge.user.get_full_name()}'
     
+    @property
     def get_total_score(self):
         fields = [self.innovation, self.need, self.finances, self.creativity, self.qna, self.speaking, self.persuasiveness, self.professionalism]
         return sum(fields)
