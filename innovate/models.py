@@ -21,7 +21,7 @@ class Team(models.Model):
         verbose_name_plural = "Teams"
 
     def __str__(self):
-        return self.name
+        return f'Team {self.number}: {self.name}'
     
     # def clean(self):
     #     # Don't allow teams to have the same name.
