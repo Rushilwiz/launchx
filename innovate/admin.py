@@ -26,7 +26,7 @@ admin_site.register(Score, ScoreAdmin)
 class CompetitorAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'email', 'team')
 
-admin_site.register(Competitor, CompetitorAdmin)
+admin_site.register(Competitor)
 
 class CompetitorInline(admin.TabularInline):
     model = Competitor
@@ -37,7 +37,7 @@ class TeamAdmin(admin.ModelAdmin):
         CompetitorInline,
     ]
 
-    list_display = ('number', 'name', 'feedback_recieved', 'score_average')
+    list_display = ('name', 'number', 'score_average', 'feedback_recieved')
     ordering = ('number',)
 
 admin_site.register(Team, TeamAdmin)
